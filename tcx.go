@@ -84,6 +84,13 @@ func NewTcx() *Tcx {
 	return tcx
 }
 
+//
+// Reports the start time in terms of the local time.
+//
+func (a *Activity) StartTime() time.Time {
+	return a.ID.In(time.Local)
+}
+
 func (a *Activity) TotalDuration() time.Duration {
 	var duration time.Duration = 0
 	for _, l := range a.Laps {
@@ -98,6 +105,13 @@ func (a *Activity) TotalDistance() float64 {
 		d += l.DistanceInMeters
 	}
 	return d
+}
+
+//
+// Converts meters to miles.
+//
+func (a *Activity) TotalDistanceInMiles() float64 {
+	return a.TotalDistance() * 0.00062137
 }
 
 func (a *Activity) AverageHeartbeat() float64 {
