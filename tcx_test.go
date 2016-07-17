@@ -16,7 +16,10 @@ func TestParse(t *testing.T) {
 		t.Error("Error parsing TCX file: ", err)
 	}
 
+	fmt.Println(tcx.Activities[0].StartTime())
 	fmt.Println(tcx.Activities[0].TotalDuration())
+	fmt.Println(tcx.Activities[0].TotalDistance())
+	fmt.Println(tcx.Activities[0].TotalDistanceInMiles())
 	fmt.Println(tcx.Activities[0].AverageHeartbeat())
 	fmt.Println(tcx.Activities[0].AveragePace())
 }
